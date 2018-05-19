@@ -1,0 +1,4 @@
+<!--pages/details/details.wxml-->
+<image class="info" src="{{imurl}}" mode='widthFix'></image>
+
+<button class='confirm'>Connect</button>
