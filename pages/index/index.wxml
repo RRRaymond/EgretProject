@@ -1,20 +1,6 @@
 
 <view class="content">
-    <!--
-    <view class="tips">
-        <text>说出你的要求，张导帮你找导游~</text>
-    </view>
-    -->
-
-    
-
     <view>
-        <!--
-        <view class="session">
-            <view class="sessoin-tit">预算</view>
-            <input class="session-val" type="number" name="currentSalary" bindchange="bindchangeInput" id="currentSalary" />
-        </view>
-        -->
         <view class="session">
             <view class="sessoin-tit">Budget／£</view>
             <picker  id="budget" class="session-picker"  bindchange="bindbudgetChange" value="{{budgetIndex}}" range="{{budget}}">
@@ -58,12 +44,6 @@
                 </view>
             </picker>
         </view>
-        <!--
-        <view class="session">
-            <view class="sessoin-tit"  >目的地</view>
-            <input class="session-val" name="workPalce"  id="workPalce" bindchange="bindchangeInput" value="夏威夷" />
-        </view>
-        -->
         <button class="myBtn" bindtap="findGuide">Here Search</button>
 
     </view>

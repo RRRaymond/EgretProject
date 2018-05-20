@@ -4,13 +4,13 @@ page{
   background-repeat: round;
 }
 
-.topImg{
+/* .topImg{
   width: 704rpx; 
   height: 182rpx;
   margin-left: 21rpx;
   position: relative;
   margin-top: 36rpx;
-}
+} */
 
 .content{
   
@@ -26,7 +26,7 @@ page{
   box-shadow: 0 0 20rpx 4rpx  #becee7;
   border-radius: 10rpx;
 }
-.tips{
+/* .tips{
    font-size: 24rpx;
    background: #d9e8fb;
    width: 446rpx;
@@ -50,7 +50,7 @@ page{
    height: 164rpx;
    margin-left: 9rpx;
    margin-top: 30rpx;
-}
+} */
 
 .session {
   display:flex;
@@ -64,15 +64,7 @@ page{
   padding:0 10rpx;
   width: 150rpx;
 }
-.session-val{
-  font-size: 26rpx;
-  color: #666666;
-  display: block;
-  line-height: 1;
-  width: 340rpx;
-  border-bottom: 1px solid #ddd;
-  margin-top: 32rpx;
-}
+
 .session-picker{
   line-height: 1;
   width: 340rpx;

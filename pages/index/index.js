@@ -8,11 +8,6 @@ Page({
   },
   data: {
     userInfo: {},
-    imgbx:{
-      topImg:'/images/p1-top.png',
-      titImg:'/images/p1-tit.png',
-      bomImg:'/images/p1-bom.png'
-    },
     button: {
       defaultSize: 'default',
       disabled: false,
@@ -29,7 +24,6 @@ Page({
     budgetIndex: 0,
     destination: ['-','Hawaii', 'Maldives', 'Bali Island', 'Hangzhou', 'Xianghu Lake'],
     desIndex: 0,
-    inputContent: {}
   },
   onLoad () {
     let that = this
@@ -39,6 +33,15 @@ Page({
       that.setData({
         userInfo:userInfo
       });
+    })
+    const requestTask = wx.request({
+        url: 'http://closecv.com:5000/api/score/game1', //仅为示例，并非真实的接口地址
+        header: {
+            'content-type': 'application/json'
+        },
+        success: function (res) {
+            console.log(res.data)
+        }
     })
   }, 
   bindageChange(e) {
@@ -75,11 +78,9 @@ Page({
     let _this  = this;
     let _datas = 0;
     let _types = _this.data.guideTypeIndex;
-    let _salary = _this.data.inputContent.currentSalary;
     console.log(this.data.budgetIndex);
     console.log(this.data.sexIndex);
     console.log(this.data.guideTypeIndex);
-    console.log(this.data.inputContent.workPalce);
     // wx.navigateTo({
     //   url: '../logs/logs?type=1'
     // });
@@ -94,28 +95,10 @@ Page({
        });
        return false;
     }*/
-    
-
-    if(_types == 0 && _salary < 10000){
-        _datas= 0;
-    }
-    else if(_types == 1 && _salary < 10000){
-        _datas= 1;
-    }
-    else if(_types == 0 && _salary > 10000){
-         _datas= 2;
-    }
-    else if (_types == 1 && _salary > 10000){
-         _datas= 3;
-    }
 
     wx.navigateTo({
       //url: '../content/content?type='+_datas
         url: '../items/items?type=' + "hello?"
     });
-  },
-  bindchangeInput (e) {
-    this.data.inputContent[e.currentTarget.id] = e.detail.value;
   }
-
 })
