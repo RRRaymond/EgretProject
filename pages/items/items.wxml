@@ -6,7 +6,7 @@
     <image style="width:{{windowWidth}}px;" mode="widthFix" src="../../images/logo.jpg"></image>
 </view>
 <scroll-view   scroll-y="true" bindscrolltoupper="pullDownRefresh" bindscrolltolower="pullUpLoad" lower-threshold="800">
-    <navigator class="list flex-box" wx:for="{{films}}" url="../details/details?title=navigate&titles={{item.nm}}">
+    <navigator class="list flex-box" wx:for="{{guiders}}" url="../details/details?title=navigate&titles={{item.nm}}">
         <view class="list-img">
             <image class="img" src="{{item.img}}"></image>
         </view>

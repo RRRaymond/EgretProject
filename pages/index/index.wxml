@@ -2,7 +2,7 @@
 <view class="content">
     <view>
         <view class="session">
-            <view class="sessoin-tit">Budget／£</view>
+            <view class="sessoin-tit">预算／￥</view>
             <picker  id="budget" class="session-picker"  bindchange="bindbudgetChange" value="{{budgetIndex}}" range="{{budget}}">
                 <view class="picker">
                   {{budget[budgetIndex]}}
@@ -11,7 +11,7 @@
         </view>
 
         <view class="session">
-            <view class="sessoin-tit">Gender</view>
+            <view class="sessoin-tit">导游性别</view>
             <picker  id="sex" class="session-picker"  bindchange="bindsexChange" value="{{sexIndex}}" range="{{sex}}">
                 <view class="picker">
                   {{sex[sexIndex]}}
@@ -20,7 +20,7 @@
         </view>
 
         <view class="session">
-            <view class="sessoin-tit">Age</view>
+            <view class="sessoin-tit">导游年龄</view>
             <picker  id="age" class="session-picker"  bindchange="bindageChange" value="{{ageIndex}}" range="{{age}}">
                 <view class="picker">
                   {{age[ageIndex]}}
@@ -29,7 +29,7 @@
         </view>
 
         <view class="session">
-            <view class="sessoin-tit">Rank</view>
+            <view class="sessoin-tit">导游质量</view>
             <picker  id="guideType" class="session-picker"  bindchange="bindPickerChange" value="{{guideTypeIndex}}" range="{{guideType}}">
                 <view class="picker">
                   {{guideType[guideTypeIndex]}}
@@ -37,7 +37,7 @@
             </picker>
         </view>
         <view class="session">
-            <view class="sessoin-tit">Travel to</view>
+            <view class="sessoin-tit">目的地</view>
             <picker  id="destination" class="session-picker"  bindchange="binddesChange" value="{{desIndex}}" range="{{destination}}">
                 <view class="picker">
                   {{destination[desIndex]}}

@@ -35,7 +35,8 @@ Page({
       });
     })
     const requestTask = wx.request({
-        url: 'http://closecv.com:5000/api/score/game1', //仅为示例，并非真实的接口地址
+        // url: 'http://closecv.com:5000/api/score/game1', //仅为示例，并非真实的接口地址
+        url: 'http://127.0.0.1:7777',
         header: {
             'content-type': 'application/json'
         },
@@ -44,6 +45,10 @@ Page({
         }
     })
   }, 
+  onPullDownRefresh: function () {
+      // Do something when pull down.
+      console.log(666);
+  },
   bindageChange(e) {
       let _this = this;
       _this.setData({
