@@ -34,21 +34,7 @@ Page({
         userInfo:userInfo
       });
     })
-    const requestTask = wx.request({
-        // url: 'http://closecv.com:5000/api/score/game1', //仅为示例，并非真实的接口地址
-        url: 'http://127.0.0.1:7777',
-        header: {
-            'content-type': 'application/json'
-        },
-        success: function (res) {
-            console.log(res.data)
-        }
-    })
   }, 
-  onPullDownRefresh: function () {
-      // Do something when pull down.
-      console.log(666);
-  },
   bindageChange(e) {
       let _this = this;
       _this.setData({
@@ -81,29 +67,19 @@ Page({
   },
   findGuide (e){
     let _this  = this;
-    let _datas = 0;
-    let _types = _this.data.guideTypeIndex;
-    console.log(this.data.budgetIndex);
-    console.log(this.data.sexIndex);
-    console.log(this.data.guideTypeIndex);
-    // wx.navigateTo({
-    //   url: '../logs/logs?type=1'
-    // });
-    // return false;
-
-    /*if(typeof(_salary) == 'undefined' || !_salary){
+    let m_data = this.data;
+    let sum = m_data.guideTypeIndex * m_data.sexIndex * m_data.ageIndex * m_data.desIndex * m_data.budgetIndex
+    if(sum === 0){
        wx.showModal({
           title: '提示',
-          content: '不好意思后面还没做',
+          content: '请填写你的需求',
           showCancel:false
-          
        });
        return false;
-    }*/
+    }
 
     wx.navigateTo({
-      //url: '../content/content?type='+_datas
-        url: '../items/items?type=' + "hello?"
+        url: '../items/items?type=' + m_data.guideTypeIndex + '&sex=' + m_data.sexIndex + '&des=' + m_data.desIndex + '&budget=' + m_data.budgetIndex + '&age=' + m_data.ageIndex
     });
   }
 })

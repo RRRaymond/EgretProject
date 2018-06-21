@@ -8,10 +8,11 @@ Page({
     windowHeight: 0,
     windowWidth: 0
   },
-  onLoad: function () {
+  onLoad: function (options) {
     // this.setData({
     //   loading: true
     // })
+    console.log(options)
   },
   onShow: function(){
     var that = this
@@ -21,7 +22,7 @@ Page({
             'content-type': 'application/json'
         },
         success: function (res) {
-            console.log(res.data)
+            //console.log(res.data)
             that.setData({
                 guiders: res.data,
                 loading: true
@@ -30,7 +31,6 @@ Page({
     })
     wx.getSystemInfo({
         success: (res) => {
-            console.log(res.windowWidth);
             this.setData({
                 windowHeight: res.windowHeight,
                 windowWidth: res.windowWidth
@@ -64,29 +64,7 @@ Page({
         }
     })
   },
-//   onPullDownRefresh() {
-//       　　console.log('--------下拉刷新-------')
-//       　　wx.showNavigationBarLoading() //在标题栏中显示加载
-
-//       　　wx.request({
-//           url: 'https://URL',
-//           data: {},
-//           method: 'GET',
-//           // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-//           // header: {}, // 设置请求的 header
-//           success: function (res) {
-//               // success
-//           },
-//           fail: function () {
-//               // fail
-//           },
-//           complete: function () {
-//               // complete
-//               wx.hideNavigationBarLoading() //完成停止加载
-//               wx.stopPullDownRefresh() //停止下拉刷新
-//           }
-//       })
-//   },    
+ 
   pullUpLoad: function(e) {
     var limit = this.data.limit + 6
     console.log(limit)
@@ -94,6 +72,20 @@ Page({
       limit: limit
     })
     this.onShow()
+  },
+  onReachBottom: function () {
+      this.setData({
+          loading: false
+      })
+      var that = this
+      setTimeout(function(){
+          var m_data = that.data.guiders
+          m_data.push(m_data[2], m_data[2], m_data[2])
+          that.setData({
+              loading: true,
+              guiders: m_data
+          })
+      },1000)
   },
   click:function(e){
       console.log(this.data.guiders)
