@@ -24,6 +24,7 @@ Page({
     budgetIndex: 0,
     destination: ['-','Hawaii', 'Maldives', 'Bali Island', 'Hangzhou', 'Xianghu Lake'],
     desIndex: 0,
+    my_loc:"-",
   },
   onLoad () {
     let that = this
@@ -65,11 +66,32 @@ Page({
       guideTypeIndex: e.detail.value
     })
   },
+  choose(e){
+      let that = this;
+      wx.chooseLocation({
+          success: function (res) {
+              // success
+              console.log(res, "location")
+              console.log(res.name)
+              console.log(res.latitude)
+              console.log(res.longitude)
+              that.setData({
+                  my_loc: res.name
+              })
+          },
+          fail: function () {
+              // fail
+          },
+          complete: function () {
+              // complete
+          }
+      })
+  },
   findGuide (e){
     let _this  = this;
     let m_data = this.data;
-    let sum = m_data.guideTypeIndex * m_data.sexIndex * m_data.ageIndex * m_data.desIndex * m_data.budgetIndex
-    if(sum === 0){
+    let sum = m_data.guideTypeIndex * m_data.sexIndex * m_data.ageIndex * m_data.budgetIndex
+    if(sum === 0 || m_data.my_loc == '-'){
        wx.showModal({
           title: '提示',
           content: '请填写你的需求',

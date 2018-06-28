@@ -36,13 +36,21 @@
                 </view>
             </picker>
         </view>
-        <view class="session">
+        <!-- <view class="session">
             <view class="sessoin-tit">目的地</view>
             <picker  id="destination" class="session-picker"  bindchange="binddesChange" value="{{desIndex}}" range="{{destination}}">
                 <view class="picker">
                   {{destination[desIndex]}}
                 </view>
             </picker>
+        </view> -->
+        <view class="session">
+            <view class="sessoin-tit">目的地</view>
+            <view  id="destination" class="session-picker"  bindtap='choose'>
+                <view class="picker">
+                  {{my_loc}}
+                </view>
+            </view>
         </view>
         <button class="myBtn" bindtap="findGuide">Here Search</button>
 

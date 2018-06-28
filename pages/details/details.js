@@ -71,7 +71,21 @@ Page({
   },
   call: function(e){
       wx.makePhoneCall({
-          phoneNumber: '1340000' //仅为示例，并非真实的电话号码
+          phoneNumber: '15801758610' //仅为示例，并非真实的电话号码
+      })
+  },
+  find: function(e){
+      wx.getLocation({
+          type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+          success: function (res) {
+              var latitude = res.latitude
+              var longitude = res.longitude
+              wx.openLocation({
+                  latitude: latitude+0.01,
+                  longitude: longitude+0.01,
+                  scale: 28
+              })
+          }
       })
   }
 })
